@@ -1,11 +1,11 @@
-import "./App.css";
+import './App.css';
 
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { LoginPage } from "./pages/Login";
+import { LoginPage } from './pages/Login';
 
-function App() {
+const App = (): JSX.Element => {
   const [count, setCount] = useState(0);
 
   return (
@@ -17,6 +17,6 @@ function App() {
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;

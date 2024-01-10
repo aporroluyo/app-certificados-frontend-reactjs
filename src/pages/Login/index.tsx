@@ -1,10 +1,10 @@
-export function LoginPage() {
+export const LoginPage = (): JSX.Element => {
   return (
     <div
       id="login"
       className="w-full h-full flex items-center justify-center bg-gray-100"
     >
-      <article className="login__container flex flex-row justify-center h-screen w-2/3 h-auto">
+      <article className="login__container flex flex-row justify-center h-auto w-2/3">
         <section className="login__left flex justify-center items-center w-1/2 max-w-96 px-3">
           <h1 className="text-3xl text-stone-400 font-thin">
             BIENVENIDO AL SISTEMA DE SOCIOS
@@ -47,7 +47,7 @@ export function LoginPage() {
           </div>
 
           <a
-            class="inline-block mb-16 text-center rounded border border-teal-600 bg-teal-600 w-full px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 duration-250 ease-in-out transform focus:outline-none focus:ring"
+            className="inline-block mb-16 text-center rounded border border-teal-600 bg-teal-600 w-full px-4 py-2 text-sm font-medium text-white hover:bg-teal-700 duration-250 ease-in-out transform focus:outline-none focus:ring"
             href="/index"
           >
             Ingresar
@@ -56,4 +56,4 @@ export function LoginPage() {
       </article>
     </div>
   );
-}
+};
