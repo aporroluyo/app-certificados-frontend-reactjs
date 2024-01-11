@@ -6,17 +6,17 @@ export const Navbar = (): JSX.Element => {
     {
       name: 'Bonus',
       url: '#',
-      isFilled: true,
+      isFilled: true
     },
     {
       name: 'Inicio',
-      url: '#',
-      isFilled: false,
+      url: '/inicio',
+      isFilled: false
     },
     {
       name: 'Certificado',
-      url: '#',
-      isFilled: false,
+      url: '/certificados',
+      isFilled: false
     },
     {
       name: 'Reporte',

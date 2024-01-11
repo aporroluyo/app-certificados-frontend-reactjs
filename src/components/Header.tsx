@@ -17,10 +17,10 @@ export const Header = ({ route }: Props): JSX.Element => {
         <div className='flex gap-2 text-sm font-medium text-stone-700 text-sm'>
           {route.map((item, index) => (
             <>
-              <h2 key={index} className={`uppercase ${index === route.length - 1 ? 'font-bold text-gray-600' : 'font-normal'}`}>
+              <h2 key={index} className={`${index === route.length - 1 ? 'font-bold text-gray-600' : 'font-normal'}`}>
                 {item}
               </h2>
-              {index < route.length - 1 && <p>{'>'}</p>}
+              {index < route.length - 1 && <p>{'/'}</p>}
             </>
           ))}
         </div>

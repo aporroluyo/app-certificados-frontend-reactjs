@@ -46,11 +46,11 @@ export const HomePage = (): JSX.Element => {
   }));
 
   return (
-    <div className='bg-gray-100 h-full'>
-      <Header route={['Alexander Porro', 'Administrador']}/>
+    <div id='home' className='bg-gray-100 h-full'>
+      <Header route={['Alexander Porro', 'Administrador']} />
 
-      <article id="home" className='p-6 flex flex-col justify-center items-center'>
-        <section className='flex justify-between items-center text-sm font-bold text-stone-800 bg-white w-11/12 h-12 mt-5 p-4'>
+      <article className='p-6 flex flex-col justify-center items-center'>
+        <section className='flex justify-between items-center text-sm font-bold text-gray-600 bg-white w-11/12 h-12 mt-5 p-4'>
           <p>CERTIFICADO Y CUPONES CONSUMIDOS</p>
           <p>ENERO/2024</p>
         </section>
