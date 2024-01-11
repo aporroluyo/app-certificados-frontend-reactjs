@@ -10,7 +10,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export const HomePage = (): JSX.Element => {
+export const Inicio = (): JSX.Element => {
   const rows = [
     {
       name: 'PIZZA HUT',

@@ -3,9 +3,9 @@ import './App.css';
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { LoginPage } from './pages/Login';
-import { HomePage } from './pages/Home';
-import { CertificatesPage } from './pages/Certificates'
+import { Login } from './pages/Login';
+import { Inicio } from './pages/Inicio';
+import { Certificados } from './pages/Certificados';
 
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0);
@@ -14,9 +14,9 @@ const App = (): JSX.Element => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/inicio" element={<HomePage />} />
-          <Route path="/certificados" element={<CertificatesPage />} />
+          <Route path='/' element={<Login />} />
+          <Route path='/inicio' element={<Inicio />} />
+          <Route path='/certificados' element={<Certificados />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,4 +1,4 @@
-export const LoginPage = (): JSX.Element => {
+export const Login = (): JSX.Element => {
   return (
     <div
       id="login"

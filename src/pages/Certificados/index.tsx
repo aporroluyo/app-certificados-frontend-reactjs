@@ -1,6 +1,6 @@
 import { Header } from '../../components/Header';
 
-export const CertificatesPage = (): JSX.Element => {
+export const Certificados = (): JSX.Element => {
   const handleClick = (): void => {
     // TODO
   };
