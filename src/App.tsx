@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { LoginPage } from './pages/Login';
+import { HomePage } from './pages/Home';
 
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0);
@@ -12,7 +13,8 @@ const App = (): JSX.Element => {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<LoginPage />} />
         </Routes>
       </BrowserRouter>
     </>
