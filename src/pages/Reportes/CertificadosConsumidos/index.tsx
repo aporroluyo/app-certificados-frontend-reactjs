@@ -1,4 +1,4 @@
-import '../../../utils/date-picker.css';
+import '../../../styles/date-picker.css';
 
 import { Header } from '../../../components/Header';
 
@@ -76,7 +76,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
       />
 
       <article className="p-6 flex flex-col items-center justify-center">
-        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0 flex gap-10">
+        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0 flex gap-10 max-md:flex-col">
           <div className="flex flex-col w-52">
             <label htmlFor="cboSocio" className="mb-2">
               SOCIO
@@ -111,7 +111,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
           </div>
 
           <div className="flex items-end">
-            <button className="inline-flex items-center gap-2 s rounded-md text-white lg:bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500">
+            <button className="inline-flex items-center gap-2 s rounded-md text-white bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

@@ -22,7 +22,7 @@ export const Certificados = (): JSX.Element => {
             className='w-1/3 rounded-md border-gray-200 shadow-sm sm:text-sm'
           />
           <button
-            className='inline-flex items-center gap-2 s rounded-md text-white lg:bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500'
+            className='inline-flex items-center gap-2 s rounded-md text-white bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500'
             onClick={handleClick}
           >
             <svg

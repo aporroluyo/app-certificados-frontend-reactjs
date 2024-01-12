@@ -14,35 +14,35 @@ export const Inicio = (): JSX.Element => {
   const rows = [
     {
       name: 'PIZZA HUT',
-      total: 107,
+      total: 107
     },
     {
       name: 'BURGER KING',
-      total: 10,
+      total: 10
     },
     {
       name: 'KFC',
-      total: 1,
-    },
+      total: 1
+    }
   ];
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: '#7e7e7e',
-      color: theme.palette.common.white,
+      color: theme.palette.common.white
     },
     [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
+      fontSize: 14
+    }
   }));
 
   const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: theme.palette.action.hover
     },
     '&:last-child td, &:last-child th': {
-      border: 0,
-    },
+      border: 0
+    }
   }));
 
   return (

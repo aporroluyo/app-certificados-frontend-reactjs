@@ -7,14 +7,14 @@ interface Props {
 
 export const Header = ({ route }: Props): JSX.Element => {
   return (
-    <>
+    <header id='header'>
       <Navbar />
 
       <div className='bg-white p-6 pt-8'>
         <h1 className='text-3xl text-stone-400 font-thin mb-2'>
           Sistema de Certificados
         </h1>
-        <div className='flex gap-2 text-sm font-medium text-stone-700 text-sm'>
+        <div className='flex gap-2 text-sm font-medium text-stone-700'>
           {route.map((item, index) => (
             <>
               <h2 key={index} className={`${index === route.length - 1 ? 'font-bold text-gray-600' : 'font-normal'}`}>
@@ -25,6 +25,6 @@ export const Header = ({ route }: Props): JSX.Element => {
           ))}
         </div>
       </div>
-    </>
+    </ header>
   );
 };
