@@ -1,20 +1,16 @@
 import '../../../styles/date-picker.css';
 
 import { Header } from '../../../components/Header';
+import { PaginatedTable } from '../../../components/PaginatedTable';
 
-import { styled } from '@mui/material/styles';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+
+const headers = ['Nro. Certificado', 'Nombres', 'Fecha Consulta', 'Hora Consulta', 'Fecha Consumo', 'Hora Consumo', 'Socio', 'Cod. Producto', 'Desc. Producto'];
 
 const rows = [
   {
-    id: 981549,
+    id: 1,
+    numCertificado: 981549,
     cargo: 'SUPERVISOR DELOSI',
     fechaConsulta: '30/05/2019',
     horaConsulta: '18:43:14',
@@ -25,7 +21,8 @@ const rows = [
     desProducto: 'BQTE BONUS FAM V2'
   },
   {
-    id: 981951,
+    id: 2,
+    numCertificado: 981951,
     cargo: 'OPERADOR DELOSI',
     fechaConsulta: '30/08/2019',
     horaConsulta: '19:57:14',
@@ -36,7 +33,8 @@ const rows = [
     desProducto: 'BONUS PARA 2 XP'
   },
   {
-    id: 985972,
+    id: 3,
+    numCertificado: 985972,
     cargo: 'OPERADOR DELOSI',
     fechaConsulta: '22/09/2019',
     horaConsulta: '18:26:09',
@@ -47,26 +45,6 @@ const rows = [
     desProducto: 'BONUS PQT FAM XP'
   }
 ];
-
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: '#e4e4e4',
-    color: '#4b5563',
-    fontWeight: 'bold'
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14
-  }
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(even)': {
-    backgroundColor: theme.palette.action.hover
-  },
-  '&:last-child td, &:last-child th': {
-    border: 0
-  }
-}));
 
 export const CertificadosConsumidos = (): JSX.Element => {
   return (
@@ -133,47 +111,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
         </section>
 
         <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-10 pb-0 flex gap-10">
-          <TableContainer component={Paper}>
-            <Table
-              sx={{ minWidth: 650 }}
-              size="small"
-              aria-label="a dense table"
-            >
-              <TableHead>
-                <TableRow>
-                  <StyledTableCell>Nro. Certificado</StyledTableCell>
-                  <StyledTableCell>Nombres</StyledTableCell>
-                  <StyledTableCell>Fecha Consulta</StyledTableCell>
-                  <StyledTableCell>Hora Consulta</StyledTableCell>
-                  <StyledTableCell>Fecha Consumo</StyledTableCell>
-                  <StyledTableCell>Hora Consumo</StyledTableCell>
-                  <StyledTableCell>Socio</StyledTableCell>
-                  <StyledTableCell>Cod. Producto</StyledTableCell>
-                  <StyledTableCell>Desc. Producto</StyledTableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <StyledTableRow
-                    key={row.id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <StyledTableCell component="th" scope="row">
-                      {row.id}
-                    </StyledTableCell>
-                    <StyledTableCell>{row.cargo}</StyledTableCell>
-                    <StyledTableCell>{row.fechaConsulta}</StyledTableCell>
-                    <StyledTableCell>{row.horaConsulta}</StyledTableCell>
-                    <StyledTableCell>{row.fechaConsumo}</StyledTableCell>
-                    <StyledTableCell>{row.horaConsumo}</StyledTableCell>
-                    <StyledTableCell>{row.socio}</StyledTableCell>
-                    <StyledTableCell>{row.codProducto}</StyledTableCell>
-                    <StyledTableCell>{row.desProducto}</StyledTableCell>
-                  </StyledTableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
+          <PaginatedTable headers={headers} rows={rows}/>
         </section>
       </article>
     </div>

@@ -7,6 +7,7 @@ import { Login } from './pages/Login';
 import { Inicio } from './pages/Inicio';
 import { Certificados } from './pages/Certificados';
 import { CertificadosConsumidos } from './pages/Reportes/CertificadosConsumidos';
+import { CanjesRealizados } from './pages/Reportes/CanjesRealizados';
 
 const App = (): JSX.Element => {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ const App = (): JSX.Element => {
           <Route path='/inicio' element={<Inicio />} />
           <Route path='/certificados' element={<Certificados />} />
           <Route path='/reportes/certificados' element={<CertificadosConsumidos />} />
+          <Route path='/reportes/canjes' element={<CanjesRealizados />} />
         </Routes>
       </BrowserRouter>
     </>

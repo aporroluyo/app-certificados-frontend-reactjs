@@ -29,7 +29,7 @@ const navItems = [
         },
         {
           name: 'Reporte de Canjes',
-          url: '#'
+          url: '/reportes/canjes'
         }
       ]
     }
