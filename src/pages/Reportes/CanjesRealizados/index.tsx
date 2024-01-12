@@ -54,7 +54,7 @@ export const CanjesRealizados = (): JSX.Element => {
       />
 
       <article className="p-6 flex flex-col items-center justify-center">
-        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0 flex gap-10 max-md:flex-col">
+        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10 max-md:flex-col">
           <div className="flex flex-col w-52">
             <label htmlFor="cboSocio" className="mb-2">
               SOCIO
@@ -110,7 +110,7 @@ export const CanjesRealizados = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-10 pb-0 flex gap-10">
+        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10">
           <PaginatedTable headers={headers} rows={rows}/>
         </section>
       </article>

@@ -1,11 +1,24 @@
 import '../../../styles/date-picker.css';
 
+import { type ChangeEvent, useState } from 'react';
+
 import { Header } from '../../../components/Header';
 import { PaginatedTable } from '../../../components/PaginatedTable';
 
+import dayjs, { type Dayjs } from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const headers = ['Nro. Certificado', 'Nombres', 'Fecha Consulta', 'Hora Consulta', 'Fecha Consumo', 'Hora Consumo', 'Socio', 'Cod. Producto', 'Desc. Producto'];
+const headers = [
+  'Nro. Certificado',
+  'Nombres',
+  'Fecha Consulta',
+  'Hora Consulta',
+  'Fecha Consumo',
+  'Hora Consumo',
+  'Socio',
+  'Cod. Producto',
+  'Desc. Producto'
+];
 
 const rows = [
   {
@@ -47,6 +60,28 @@ const rows = [
 ];
 
 export const CertificadosConsumidos = (): JSX.Element => {
+  // hacer un custom hook
+  const [partner, setPartner] = useState('0');
+  const [startDate, setStartDate] = useState<Dayjs | null>();
+  const [endDate, setEndDate] = useState<Dayjs | null>();
+
+  const [setshowTable, setShowTable] = useState(false);
+
+  const handlePartnerChange = (event: ChangeEvent<HTMLSelectElement>): void => {
+    const selectedPartner = event.target.value;
+    setPartner(selectedPartner);
+  };
+
+  const verifyData = (): void => {
+    if (
+      partner !== undefined &&
+      startDate !== undefined &&
+      endDate !== undefined
+    ) {
+      setShowTable(true);
+    }
+  };
+
   return (
     <div className="bg-gray-100 h-full">
       <Header
@@ -54,7 +89,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
       />
 
       <article className="p-6 flex flex-col items-center justify-center">
-        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0 flex gap-10 max-md:flex-col">
+        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10 max-md:flex-col">
           <div className="flex flex-col w-52">
             <label htmlFor="cboSocio" className="mb-2">
               SOCIO
@@ -63,6 +98,8 @@ export const CertificadosConsumidos = (): JSX.Element => {
               name="cboSocio"
               id="cboSocio"
               className="h-auto font-normal px-4 py-1 rounded-md"
+              onChange={handlePartnerChange}
+              value={partner}
             >
               <option value="0">Todos</option>
               <option value="1">Burger King</option>
@@ -77,7 +114,13 @@ export const CertificadosConsumidos = (): JSX.Element => {
               FECHA INICIO
             </label>
 
-            <DatePicker slotProps={{ textField: { size: 'small' } }} />
+            <DatePicker
+              slotProps={{ textField: { size: 'small' } }}
+              value={startDate}
+              onChange={(newStartDate) => {
+                setStartDate(newStartDate);
+              }}
+            />
           </div>
 
           <div className="flex flex-col w-52">
@@ -85,11 +128,20 @@ export const CertificadosConsumidos = (): JSX.Element => {
               FECHA FIN
             </label>
 
-            <DatePicker slotProps={{ textField: { size: 'small' } }} />
+            <DatePicker
+              slotProps={{ textField: { size: 'small' } }}
+              value={endDate}
+              onChange={(newEndDate) => {
+                setEndDate(newEndDate);
+              }}
+            />
           </div>
 
           <div className="flex items-end">
-            <button className="inline-flex items-center gap-2 s rounded-md text-white bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500">
+            <button
+              className="inline-flex items-center gap-2 s rounded-md text-white bg-teal-600 px-6 py-3 hover:bg-teal-800 focus:outline-none focus:ring active:text-indigo-500"
+              onClick={verifyData}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -110,9 +162,11 @@ export const CertificadosConsumidos = (): JSX.Element => {
           </div>
         </section>
 
-        <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-10 pb-0 flex gap-10">
-          <PaginatedTable headers={headers} rows={rows}/>
-        </section>
+        {setshowTable && (
+          <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10">
+            <PaginatedTable headers={headers} rows={rows} />
+          </section>
+        )}
       </article>
     </div>
   );
