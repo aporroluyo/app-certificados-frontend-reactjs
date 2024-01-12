@@ -26,7 +26,7 @@ export const Navbar = (): JSX.Element => {
         items: [
           {
             name: 'Reporte Certificado',
-            url: '#',
+            url: '/reportes/certificados',
           },
           {
             name: 'Reporte de Canjes',

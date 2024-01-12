@@ -42,7 +42,6 @@ export const Certificados = (): JSX.Element => {
 
             <span className='text-sm font-normal'>Consultar</span>
           </button>
-          <button></button>
         </section>
       </article>
     </div>
