@@ -36,12 +36,12 @@ const navItems = [
   },
   {
     name: 'Campaña Cross',
-    url: '#',
+    url: '/cupones',
     isFilled: false
   },
   {
     name: 'Big Promo - Primax',
-    url: '#',
+    url: '/campania',
     isFilled: false
   },
   {
