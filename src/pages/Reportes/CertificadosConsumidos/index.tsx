@@ -1,14 +1,13 @@
-import '../../../styles/date-picker.css';
-
-import { type ChangeEvent, useState } from 'react';
-
-import { Header } from '../../../components/Header';
-import { PaginatedTable } from '../../../components/PaginatedTable';
-
-import dayjs, { type Dayjs } from 'dayjs';
+import { useState } from 'react';
+import { type Dayjs } from 'dayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const headers = [
+import { PaginatedTable } from '../../../components/PaginatedTable';
+import { Layout } from '../../../components/Layout';
+
+import '../../../styles/date-picker.css';
+
+const tableHeaders = [
   'Nro. Certificado',
   'Nombres',
   'Fecha Consulta',
@@ -67,11 +66,6 @@ export const CertificadosConsumidos = (): JSX.Element => {
 
   const [setshowTable, setShowTable] = useState(false);
 
-  const handlePartnerChange = (event: ChangeEvent<HTMLSelectElement>): void => {
-    const selectedPartner = event.target.value;
-    setPartner(selectedPartner);
-  };
-
   const verifyData = (): void => {
     if (
       partner !== undefined &&
@@ -83,11 +77,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
   };
 
   return (
-    <div className="bg-gray-100 h-full">
-      <Header
-        route={['Inicio', 'Reportes', 'Descargar Certificados Consumidos']}
-      />
-
+    <Layout headerRoute={['Inicio', 'Reportes', 'Descargar Certificados Consumidos']}>
       <article className="p-6 flex flex-col items-center justify-center">
         <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10 max-md:flex-col">
           <div className="flex flex-col w-52">
@@ -98,7 +88,7 @@ export const CertificadosConsumidos = (): JSX.Element => {
               name="cboSocio"
               id="cboSocio"
               className="h-auto font-normal px-4 py-1 rounded-md"
-              onChange={handlePartnerChange}
+              onChange={({ target }) => { setPartner(target.value); }}
               value={partner}
             >
               <option value="0">Todos</option>
@@ -164,10 +154,10 @@ export const CertificadosConsumidos = (): JSX.Element => {
 
         {setshowTable && (
           <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10">
-            <PaginatedTable headers={headers} rows={rows} />
+            <PaginatedTable headers={tableHeaders} rows={rows} />
           </section>
         )}
       </article>
-    </div>
+    </Layout>
   );
 };

@@ -1,80 +1,87 @@
 import { useEffect, useState } from 'react';
 import { NavbarItem } from '../components/NavbarItem';
 
-const navItems = [
-  {
-    name: 'Bonus',
-    url: '#',
-    isFilled: true
-  },
-  {
-    name: 'Inicio',
-    url: '/inicio',
-    isFilled: false
-  },
-  {
-    name: 'Certificado',
-    url: '/certificados',
-    isFilled: false
-  },
-  {
-    name: 'Reporte',
-    url: '#',
-    isFilled: false,
-    dropdownOptions: {
-      items: [
-        {
-          name: 'Reporte Certificado',
-          url: '/reportes/certificados'
-        },
-        {
-          name: 'Reporte de Canjes',
-          url: '/reportes/canjes'
-        }
-      ]
-    }
-  },
-  {
-    name: 'Campaña Cross',
-    url: '/cupones',
-    isFilled: false
-  },
-  {
-    name: 'Big Promo - Primax',
-    url: '/campania',
-    isFilled: false
-  },
-  {
-    name: 'Consulta de Puntos',
-    url: '#',
-    isFilled: false
-  },
-  {
-    name: 'Mantenimiento Producto',
-    url: '#',
-    isFilled: false
-  },
-  {
-    name: 'Cuenta',
-    url: '#',
-    isFilled: false,
-    dropdownOptions: {
-      items: [
-        {
-          name: 'Cambiar contraseña',
-          url: '#'
-        },
-        {
-          name: 'Cerrar sesión',
-          url: '#'
-        }
-      ],
-      direction: 2
-    }
-  }
-];
+import { useAuth } from '../auth/AuthProvider';
 
 export const Navbar = (): JSX.Element => {
+  const auth = useAuth();
+
+  const logout = (): void => { auth.clearUser(); };
+
+  const navItems = [
+    {
+      name: 'Bonus',
+      url: '/inicio',
+      isFilled: true
+    },
+    {
+      name: 'Inicio',
+      url: '/inicio',
+      isFilled: false
+    },
+    {
+      name: 'Certificado',
+      url: '/certificados',
+      isFilled: false
+    },
+    {
+      name: 'Reporte',
+      url: '#',
+      isFilled: false,
+      dropdownOptions: {
+        items: [
+          {
+            name: 'Reporte Certificado',
+            url: '/reportes/certificados'
+          },
+          {
+            name: 'Reporte de Canjes',
+            url: '/reportes/canjes'
+          }
+        ]
+      }
+    },
+    {
+      name: 'Campaña Cross',
+      url: '/cupones',
+      isFilled: false
+    },
+    {
+      name: 'Big Promo - Primax',
+      url: '/campania',
+      isFilled: false
+    },
+    {
+      name: 'Consulta de Puntos',
+      url: '/empty',
+      isFilled: false
+    },
+    {
+      name: 'Mantenimiento Producto',
+      url: '/empty',
+      isFilled: false
+    },
+    {
+      name: 'Cuenta',
+      url: '#',
+      isFilled: false,
+      dropdownOptions: {
+        items: [
+          {
+            name: 'Cambiar contraseña',
+            url: '#'
+          },
+          {
+            name: 'Cerrar sesión',
+            url: '#',
+            func: logout
+          }
+        ],
+        direction: 2
+      }
+    }
+  ];
+
   const [showMenu, setShowMenu] = useState(true);
 
   // useEffect(() => {

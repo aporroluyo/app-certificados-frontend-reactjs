@@ -1,16 +1,23 @@
+import { NavLink } from 'react-router-dom';
+
+import '../styles/nav-links.css';
+
 interface DropdownItem {
   name: string
   url: string
+  func?: () => void
+}
+
+interface DropdownOptions {
+  items: DropdownItem[]
+  direction?: number
 }
 
 interface Props {
   name: string
   url: string
   isFilled?: boolean
-  dropdownOptions?: {
-    items: DropdownItem[]
-    direction?: number
-  }
+  dropdownOptions?: DropdownOptions
 }
 
 export const NavbarItem = ({
@@ -19,16 +26,17 @@ export const NavbarItem = ({
   isFilled,
   dropdownOptions
 }: Props): JSX.Element => {
-  const direction = dropdownOptions?.direction !== undefined ? dropdownOptions.direction : 1;
+  const direction =
+    dropdownOptions?.direction !== undefined ? dropdownOptions.direction : 1;
 
   return (
     <div className="group block lg:inline-block relative font-medium">
-      <a
-        href={url}
+      <NavLink
+        to={url}
         className={`block lg:inline-block text-gray-900 h-14 px-6
         ${
           isFilled === true
-            ? 'lg:bg-teal-600 text-lg lg:text-white lg:hover:bg-teal-700 lg:hover:text-white bg-transparent text-teal-600 hover:text-teal-800'
+            ? 'text-lg text-teal-600 font-bold lg:hover:text-white lg:font-normal lg:text-white lg:hover:bg-teal-700 lg:bg-teal-600 lg:focus:text-white filled-link'
             : ''
         }
         transition duration-150 ease-in-out hover:text-teal-600 focus:text-teal-600 p-1`}
@@ -53,26 +61,23 @@ export const NavbarItem = ({
               </svg>
           )}
         </div>
-      </a>
+      </NavLink>
       {/* Dropdown */}
       {dropdownOptions !== undefined && dropdownOptions.items.length > 0 && (
         <ul
           className={`bg-white border rounded-sm lg:absolute ${
-            direction === 1
-              ? 'left-3'
-              : direction === 2
-              ? 'right-4'
-              : ''
+            direction === 1 ? 'left-3' : direction === 2 ? 'right-4' : ''
           } lg:hidden border-none group-hover:block transition duration-150 ease-in-out origin-top min-w-48`}
         >
           {dropdownOptions.items.map((item, index) => (
             <li key={index} className="rounded-sm lg:hover:bg-gray-100">
-              <a
-                href={item.url}
+              <NavLink
+                to={item.url}
                 className="flex w-full h-full px-3 py-4 lg:py-2 justify-center lg:justify-start transition duration-150 ease-in-out hover:text-teal-600"
+                onClick={() => item.func?.()}
               >
                 {item.name}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>

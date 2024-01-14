@@ -1,4 +1,4 @@
-import { Header } from '../../components/Header';
+import { Layout } from '../../components/Layout';
 
 export const Certificados = (): JSX.Element => {
   const handleClick = (): void => {
@@ -6,9 +6,7 @@ export const Certificados = (): JSX.Element => {
   };
 
   return (
-    <div id='certificados' className='bg-gray-100 h-full'>
-      <Header route={['Inicio', 'Certificados', 'Descargar Certificado']} />
-
+    <Layout headerRoute={['Inicio', 'Certificados', 'Descargar Certificado']}>
       <article className='p-6 flex flex-col justify-center items-center'>
         <div className='text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0'>
           <label htmlFor='certNumber'>NÚMERO DE CERTIFICADO</label>
@@ -44,6 +42,6 @@ export const Certificados = (): JSX.Element => {
           </button>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 };

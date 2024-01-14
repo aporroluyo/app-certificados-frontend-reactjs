@@ -1,11 +1,11 @@
-import '../../../styles/date-picker.css';
-
-import { Header } from '../../../components/Header';
-import { PaginatedTable } from '../../../components/PaginatedTable';
-
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
-const headers = ['Marca', 'DNI', 'Nombres', 'Puntos Canjeados', 'Fecha Canje', 'Hora Canje'];
+import { PaginatedTable } from '../../../components/PaginatedTable';
+import { Layout } from '../../../components/Layout';
+
+import '../../../styles/date-picker.css';
+
+const tableHeaders = ['Marca', 'DNI', 'Nombres', 'Puntos Canjeados', 'Fecha Canje', 'Hora Canje'];
 
 const rows = [
   {
@@ -48,11 +48,7 @@ const rows = [
 
 export const CanjesRealizados = (): JSX.Element => {
   return (
-    <div className="bg-gray-100 h-full">
-      <Header
-        route={['Inicio', 'Reportes', 'Canjes Realizados por Contact Center']}
-      />
-
+    <Layout headerRoute={['Inicio', 'Reportes', 'Canjes Realizados por Contact Center']}>
       <article className="p-6 flex flex-col items-center justify-center">
         <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10 max-md:flex-col">
           <div className="flex flex-col w-52">
@@ -111,9 +107,9 @@ export const CanjesRealizados = (): JSX.Element => {
         </section>
 
         <section className="text-sm text-gray-600 font-bold bg-white w-11/12 h-auto px-4 py-6 flex gap-10">
-          <PaginatedTable headers={headers} rows={rows}/>
+          <PaginatedTable headers={tableHeaders} rows={rows}/>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 };

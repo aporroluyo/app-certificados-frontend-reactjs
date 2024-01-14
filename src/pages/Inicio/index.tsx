@@ -1,7 +1,3 @@
-import { styled } from '@mui/material/styles';
-
-import { Header } from '../../components/Header';
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
@@ -9,6 +5,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+
+import { Layout } from '../../components/Layout';
+
+import { styled } from '@mui/material/styles';
 
 export const Inicio = (): JSX.Element => {
   const rows = [
@@ -46,9 +46,7 @@ export const Inicio = (): JSX.Element => {
   }));
 
   return (
-    <div id='home' className='bg-gray-100 h-full'>
-      <Header route={['Alexander Porro', 'Administrador']} />
-
+    <Layout headerRoute={['Alexander Porro', 'Administrador']}>
       <article className='p-6 flex flex-col justify-center items-center'>
         <section className='flex justify-between items-center text-sm font-bold text-gray-600 bg-white w-11/12 h-12 mt-5 p-4'>
           <p>CERTIFICADO Y CUPONES CONSUMIDOS</p>
@@ -85,6 +83,6 @@ export const Inicio = (): JSX.Element => {
           </TableContainer>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 };

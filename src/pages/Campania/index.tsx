@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header';
+import { Layout } from '../../components/Layout';
 
 export const Campania = (): JSX.Element => {
   const handleClick = (): void => {
@@ -6,9 +7,7 @@ export const Campania = (): JSX.Element => {
   };
 
   return (
-    <div id='campania' className='bg-gray-100 h-full'>
-      <Header route={['Inicio', 'Campaña', 'Descargar Cupón']} />
-
+    <Layout headerRoute={['Inicio', 'Campaña', 'Descargar Cupón']}>
       <article className='p-6 flex flex-col justify-center items-center'>
         <div className='text-sm text-gray-600 font-bold bg-white w-11/12 h-auto p-4 pt-6 pb-0'>
           <label htmlFor='certNumber'>NÚMERO DE CUPÓN</label>
@@ -44,6 +43,6 @@ export const Campania = (): JSX.Element => {
           </button>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 };
