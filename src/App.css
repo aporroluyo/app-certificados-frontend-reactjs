@@ -4,4 +4,6 @@
   width: 100vw;
   height: 100vh;
   font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }

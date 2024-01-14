@@ -13,6 +13,7 @@ import { CertificadosConsumidos } from './pages/Reportes/CertificadosConsumidos'
 import { CanjesRealizados } from './pages/Reportes/CanjesRealizados';
 import { Cupones } from './pages/Cupones';
 import { Campania } from './pages/Campania';
+import { CambioContrasenia } from './pages/Seguridad/CambioContrasenia';
 
 import './App.css';
 import './index.css'; // for tailwind
@@ -50,6 +51,15 @@ const router = createBrowserRouter([
   {
     path: 'campania',
     element: <Campania />
+  },
+  {
+    path: 'seguridad',
+    children: [
+      {
+        path: 'contrasenia',
+        element: <CambioContrasenia />
+      }
+    ]
   }
 ]);
 

@@ -69,7 +69,7 @@ export const Navbar = (): JSX.Element => {
         items: [
           {
             name: 'Cambiar contraseña',
-            url: '#'
+            url: '/seguridad/contrasenia'
           },
           {
             name: 'Cerrar sesión',
