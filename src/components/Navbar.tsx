@@ -58,7 +58,7 @@ export const Navbar = (): JSX.Element => {
     },
     {
       name: 'Mantenimiento Producto',
-      url: '/empty',
+      url: '/productos/mantenimiento',
       isFilled: false
     },
     {

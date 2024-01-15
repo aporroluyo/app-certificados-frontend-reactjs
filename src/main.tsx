@@ -13,6 +13,8 @@ import { CertificadosConsumidos } from './pages/Reportes/CertificadosConsumidos'
 import { CanjesRealizados } from './pages/Reportes/CanjesRealizados';
 import { Cupones } from './pages/Cupones';
 import { Campania } from './pages/Campania';
+import { MantenimientoProductos } from './pages/Productos/MantenimientoProductos';
+import { NuevoProducto } from './pages/Productos/NuevoProducto';
 import { CambioContrasenia } from './pages/Seguridad/CambioContrasenia';
 
 import './App.css';
@@ -58,6 +60,20 @@ const router = createBrowserRouter([
       {
         path: 'contrasenia',
         element: <CambioContrasenia />
+      }
+    ]
+  },
+  {
+    path: 'productos',
+    children: [
+      {
+        path: 'mantenimiento',
+        element: <MantenimientoProductos />
+
+      },
+      {
+        path: 'nuevo',
+        element: <NuevoProducto />
       }
     ]
   }
