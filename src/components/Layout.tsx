@@ -17,7 +17,7 @@ export const Layout = ({ children, headerRoute }: Props): JSX.Element => {
   return (
     <>
       <Header route={headerRoute} />
-      <div className="bg-gray-100 h-full">{children}</div>
+      <div className="bg-gray-100 lg:h-full h-auto">{children}</div>
     </>
   );
 };

@@ -53,7 +53,7 @@ export const Navbar = (): JSX.Element => {
     },
     {
       name: 'Consulta de Puntos',
-      url: '/empty',
+      url: '/puntos',
       isFilled: false
     },
     {

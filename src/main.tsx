@@ -13,6 +13,7 @@ import { CertificadosConsumidos } from './pages/Reportes/CertificadosConsumidos'
 import { CanjesRealizados } from './pages/Reportes/CanjesRealizados';
 import { Cupones } from './pages/Cupones';
 import { Campania } from './pages/Campania';
+import { Puntos } from './pages/Puntos';
 import { MantenimientoProductos } from './pages/Productos/MantenimientoProductos';
 import { NuevoProducto } from './pages/Productos/NuevoProducto';
 import { CambioContrasenia } from './pages/Seguridad/CambioContrasenia';
@@ -55,13 +56,8 @@ const router = createBrowserRouter([
     element: <Campania />
   },
   {
-    path: 'seguridad',
-    children: [
-      {
-        path: 'contrasenia',
-        element: <CambioContrasenia />
-      }
-    ]
+    path: 'puntos',
+    element: <Puntos />
   },
   {
     path: 'productos',
@@ -74,6 +70,15 @@ const router = createBrowserRouter([
       {
         path: 'nuevo',
         element: <NuevoProducto />
+      }
+    ]
+  },
+  {
+    path: 'seguridad',
+    children: [
+      {
+        path: 'contrasenia',
+        element: <CambioContrasenia />
       }
     ]
   }
